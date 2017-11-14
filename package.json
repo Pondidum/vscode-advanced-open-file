@@ -1,0 +1,30 @@
+{
+  "name": "vscode-advanced-file-open",
+  "version": "1.0.0",
+  "description": "Advanced File Open dialog",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pondidum/vscode-afo.git"
+  },
+  "keywords": [
+    "vscode",
+    "advanced",
+    "file",
+    "open",
+    "dialog"
+  ],
+  "author": "andy dote",
+  "license": "LGPL-2.1",
+  "bugs": {
+    "url": "https://github.com/pondidum/vscode-afo/issues"
+  },
+  "homepage": "https://github.com/pondidum/vscode-afo#readme"
+}
