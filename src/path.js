@@ -1,4 +1,6 @@
 import fs from "fs";
+import mkdirp from "mkdirp";
+import touch from "touch";
 import { determineSeparator } from "./utils";
 
 const immutableProperty = (obj, name, value) =>
@@ -39,5 +41,19 @@ export default class Path {
 
   exists() {
     return !!this.stat;
+  }
+
+  createDirectories() {
+    try {
+      mkdirp.sync(this.directory);
+    } catch (err) {
+      if (err.code !== "ENOENT") {
+        throw err;
+      }
+    }
+  }
+
+  createFile() {
+    touch.sync(this.full);
   }
 }
