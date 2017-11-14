@@ -22,14 +22,22 @@ export default class Path {
   }
 
   get stat() {
-    return fs.statSync(this.full);
+    try {
+      return fs.statSync(this.full);
+    } catch (err) {
+      return null;
+    }
   }
 
   isDirectory() {
-    return this.stat.isDirectory();
+    return !!(this.stat && this.stat.isDirectory());
   }
 
   isFile() {
-    return this.stat.isFile();
+    return !!(this.stat && this.stat.isFile());
+  }
+
+  exists() {
+    return !!this.stat;
   }
 }

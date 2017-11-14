@@ -15,6 +15,7 @@ it("should detect directories", () => {
 
   expect(path.isDirectory()).toEqual(true);
   expect(path.isFile()).toEqual(false);
+  expect(path.exists()).toEqual(true);
 });
 
 it("should detect files", () => {
@@ -22,4 +23,13 @@ it("should detect files", () => {
 
   expect(path.isDirectory()).toEqual(false);
   expect(path.isFile()).toEqual(true);
+  expect(path.exists()).toEqual(true);
+});
+
+it("should handle non-existing paths", () => {
+  const path = new Path(osPath.join(__dirname, "wefwefwefwefw.js"));
+
+  expect(path.isDirectory()).toEqual(false);
+  expect(path.isFile()).toEqual(false);
+  expect(path.exists()).toEqual(false);
 });
