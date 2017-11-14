@@ -11,19 +11,13 @@
     "regenerator-runtime": "^0.11.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pondidum/vscode-afo.git"
   },
-  "keywords": [
-    "vscode",
-    "advanced",
-    "file",
-    "open",
-    "dialog"
-  ],
+  "keywords": ["vscode", "advanced", "file", "open", "dialog"],
   "author": "andy dote",
   "license": "LGPL-2.1",
   "bugs": {
