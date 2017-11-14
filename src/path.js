@@ -1,3 +1,4 @@
+import fs from "fs";
 import { determineSeparator } from "./utils";
 
 const immutableProperty = (obj, name, value) =>
@@ -18,5 +19,17 @@ export default class Path {
     immutableProperty(this, "tail", tail);
     immutableProperty(this, "full", path);
     immutableProperty(this, "separator", separator);
+  }
+
+  get stat() {
+    return fs.statSync(this.full);
+  }
+
+  isDirectory() {
+    return this.stat.isDirectory();
+  }
+
+  isFile() {
+    return this.stat.isFile();
   }
 }
