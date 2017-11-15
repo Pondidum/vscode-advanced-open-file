@@ -6,13 +6,9 @@
   "engines": {
     "vscode": "^1.18.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:extension.advancedOpenFile"
-  ],
-  "main": "./src/extensions",
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:extension.advancedOpenFile"],
+  "main": "./dist/extensions",
   "contributes": {
     "commands": [
       {
@@ -35,6 +31,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir dist",
+    "build:watch": "babel src --out-dir dist --watch",
     "vscode:prepublish": "babel src --out-dir dist",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "jest --watch"
@@ -43,13 +40,7 @@
     "type": "git",
     "url": "git+https://github.com/pondidum/vscode-afo.git"
   },
-  "keywords": [
-    "vscode",
-    "advanced",
-    "file",
-    "open",
-    "dialog"
-  ],
+  "keywords": ["vscode", "advanced", "file", "open", "dialog"],
   "author": "andy dote",
   "publisher": "andy dote",
   "license": "LGPL-2.1",
