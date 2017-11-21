@@ -1,14 +1,27 @@
 const vscode = require("vscode");
 
 export const showCommand = (textEditor, edit) => {
-  const someItems = [
-    { label: "one", description: null },
-    { label: "two", description: null },
-    { label: "three", description: null },
-    { label: "four", description: null }
-  ];
+  const workspace = vscode.workspace;
 
-  vscode.window.showQuickPick(someItems).then(item => {
+  if (!workspace) {
+    return;
+  }
+
+  const root = workspace.rootPath;
+
+  const options = {
+    onDidSelectItem: item => {
+      console.log("showQuickPick.onDidSelectItem", item.label);
+    }
+  };
+
+  const items = workspace.findFiles("**/*", "**/node_modules/**").then(paths =>
+    paths.map(uri => {
+      return { label: uri.fsPath, description: null };
+    })
+  );
+
+  vscode.window.showQuickPick(items, options).then(item => {
     console.log("showQuickPick.start");
     if (typeof item === "undefined") {
       return;
