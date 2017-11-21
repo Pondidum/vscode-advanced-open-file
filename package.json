@@ -30,9 +30,9 @@
     "vscode": "^1.1.6"
   },
   "scripts": {
-    "build": "babel src --out-dir dist",
-    "build:watch": "babel src --out-dir dist --watch",
-    "vscode:prepublish": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist --source-maps",
+    "build:watch": "babel src --out-dir dist --watch --source-maps",
+    "vscode:prepublish": "babel src --out-dir dist --source-maps",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "jest --watch"
   },
